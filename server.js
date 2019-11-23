@@ -12,7 +12,7 @@ data: {
     }})
 
 .then((res) => {
-    console.log(res.data.foods[0].food_name)
+    console.log(res.data.foods[0])
     return;
 })
   .catch((error) => {

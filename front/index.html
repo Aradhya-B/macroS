@@ -156,16 +156,109 @@
 
 
 <h2>Fats</h2>
->
-  let
 
 
-
-
-<div class="row">
-  <div class="column"></div>
-  <div class="column"></div>
+<div class="container">
+  <canvas id="fats" width="400" height="75"></canvas>
 </div>
+
+<script>
+  let fats = document.getElementById('fats').getContext('2d');
+  let fatchar = new Chart(fats, {
+    type: 'horizontalBar',
+    data:{
+            labels: ['Fats (g)'],
+            datasets: [{
+                data: [150]
+            }]
+        },
+    options: {
+      scales: {
+            xAxes: [{
+                ticks: {
+                    suggestedMin: 0,
+                    stepSize: 100,
+                    maxTicksLimit: 6,
+                    suggestedMax: 300 // make this the variable here
+                }
+            }]
+        },
+      legend:{
+        display: false
+      },
+      hover: false
+
+
+    }
+  });
+
+
+</script>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+    <h2>Goals</h2>
+    <canvas id="doughnut-chart" width="800" height="450"></canvas>
+<script>
+
+new Chart(document.getElementById("doughnut-chart"), {
+    type: 'doughnut',
+    data: {
+      labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+      datasets: [
+        {
+          label: "Population (millions)",
+          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+          data: [2478,5267,734,784,433]
+        }
+      ]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Predicted world population (millions) in 2050'
+      }
+    }
+});
+
+</script>
+
+    </div>
+    <div class="col">
+      <h2>Actual</h2>
+
+
+    <canvas id="actual" width="800" height="450"></canvas>
+
+    <script>
+
+new Chart(document.getElementById("actual"), {
+    type: 'doughnut',
+    data: {
+      labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+      datasets: [
+        {
+          label: "Population (millions)",
+          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+          data: [2478,5267,734,784,433]
+        }
+      ]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Predicted world population (millions) in 2050'
+      }
+    }
+});
+    </script>
+    </div>
+  </div>
+</div>
+
+
 
 </body>
 </html>
