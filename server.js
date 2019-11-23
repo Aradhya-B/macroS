@@ -12,10 +12,12 @@ data: {
     }})
 
 .then((res) => {
-    console.log(`statusCode: ${res.statusCode}`)
-    console.log(res.data.foods[0])
-  })
+    console.log(res.data.foods[0].food_name)
+    return;
+})
   .catch((error) => {
     console.error(error)
   })
+
+  console.log('hi')
   
