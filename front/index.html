@@ -116,18 +116,17 @@
 <h2>Carbohydrates</h2>
 
 <div class="container">
-  <canvas id="pro" width="400" height="75"></canvas>
+  <canvas id="carbs" width="400" height="75"></canvas>
 </div>
 
 <script>
-  let pro = document.getElementById('pro').getContext('2d');
-  let myChaddt = new Chart(pro, {
+  let carbs = document.getElementById('carbs').getContext('2d');
+  let carbchar = new Chart(carbs, {
     type: 'horizontalBar',
     data:{
-            labels: ['Carbs'],
+            labels: ['Carbs(g)'],
             datasets: [{
-                label: 'My First dataset',
-                data: [1500]
+                data: [150]
             }]
         },
     options: {
@@ -137,7 +136,7 @@
                     suggestedMin: 0,
                     stepSize: 100,
                     maxTicksLimit: 6,
-                    suggestedMax: 2500 // make this the variable here
+                    suggestedMax: 300 // make this the variable here
                 }
             }]
         },
@@ -152,59 +151,17 @@
 
 
 </script>
+
+
+
+
 <h2>Fats</h2>
-<div class="container">
-  <canvas id="fats" width="400" height="75"></canvas>
-</div>
-<script>
-  var data, ctx, mychart;
-
-data = {
-    labels: ["Dmitri.Ivanovich.Mendeleev", "Yuri.Alekseyevich.Gagarin", "Alexey.Arkhipovich.Leonov"],
-    datasets: [{
-        label: "My First dataset",
-        fillColor: "rgba(220,220,220,0.5)",
-        strokeColor: "rgba(220,220,220,0.8)",
-        highlightFill: "rgba(220,220,220,0.75)",
-        highlightStroke: "rgba(220,220,220,1)",
-        data: [50, 88, 15]
-    }]
-};
-
-ctx = document.getElementById("chart_b").getContext("2d");
-mychart2 = new Chart(ctx).Bar(data, {
-    animation: false
-});
+>
+  let
 
 
 
 
-Chart.types.Bar.extend({
-    name: "BarAlt",
-    draw: function () {
-        this.scale.endPoint = this.options.endPoint;
-        Chart.types.Bar.prototype.draw.apply(this, arguments);
-    }
-});
-
-data = {
-    labels: ["Iantojones", "Jackharkness", "Owenharper"],
-    datasets: [{
-        label: "My First dataset",
-        fillColor: "rgba(220,220,220,0.5)",
-        strokeColor: "rgba(220,220,220,0.8)",
-        highlightFill: "rgba(220,220,220,0.75)",
-        highlightStroke: "rgba(220,220,220,1)",
-        data: [50, 88, 15]
-    }]
-};
-
-ctx = document.getElementById("chart_a").getContext("2d");
-mychart1 = new Chart(ctx).BarAlt(data, {
-    endPoint: mychart2.scale.endPoint,
-    animation: false
-});
-</script>
 <div class="row">
   <div class="column"></div>
   <div class="column"></div>
