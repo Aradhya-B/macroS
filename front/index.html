@@ -1,12 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <style>
+    ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    }
+
+    li {
+    float: left;
+    }
+
+    li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    }
+  </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>macroS</title>
 </head>
+<h1>macroS</h1>
+
+
 <body>
-    
+<h2>Calories</h2>
+<div class="container">
+  <canvas id="cal" width="400" height="75"></canvas>
+</div>
+
+<script>
+  let cal = document.getElementById('cal').getContext('2d');
+  let myBarChart = new Chart(cal, {
+    type: 'horizontalBar',
+    data:{
+            labels: ['Calories'],
+            datasets: [{
+              barPercentage: 0.5,
+              barThickness: 4,
+              maxBarThickness: 8,
+              minBarLength: 2,
+                data: [1500]
+            }]
+        },
+    options: {
+      scales: {
+            xAxes: [{
+                ticks: {
+                    suggestedMin: 0,
+                    stepSize: 100,
+                    maxTicksLimit: 6,
+                    suggestedMax: 2500 // make this the variable here
+                }
+            }]
+        },
+      legend:{
+        display: false
+      },
+      hover: false
+
+
+    }
+  });
+
+
+</script>
+
+<h2>Protein</h2>
+
+<div class="container">
+  <canvas id="pro" width="400" height="75"></canvas>
+</div>
+
+<script>
+  let pro = document.getElementById('pro').getContext('2d');
+  let myChart = new Chart(pro, {
+    type: 'horizontalBar',
+    data:{
+            labels: ['Protein(g)'],
+            datasets: [{
+                data: [150]
+            }]
+        },
+    options: {
+      scales: {
+            xAxes: [{
+                ticks: {
+                    suggestedMin: 0,
+                    stepSize: 100,
+                    maxTicksLimit: 6,
+                    suggestedMax: 300 // make this the variable here
+                }
+            }]
+        },
+      legend:{
+        display: false
+      },
+      hover: false
+
+
+    }
+  });
+
+
+</script>
+<h2>Carbohydrates</h2>
+
+<div class="container">
+  <canvas id="pro" width="400" height="75"></canvas>
+</div>
+
+<script>
+  let pro = document.getElementById('pro').getContext('2d');
+  let myChaddt = new Chart(pro, {
+    type: 'horizontalBar',
+    data:{
+            labels: ['Carbs'],
+            datasets: [{
+                label: 'My First dataset',
+                data: [1500]
+            }]
+        },
+    options: {
+      scales: {
+            xAxes: [{
+                ticks: {
+                    suggestedMin: 0,
+                    stepSize: 100,
+                    maxTicksLimit: 6,
+                    suggestedMax: 2500 // make this the variable here
+                }
+            }]
+        },
+      legend:{
+        display: false
+      },
+      hover: false
+
+
+    }
+  });
+
+
+</script>
+<h2>Fats</h2>
+<div class="container">
+  <canvas id="fats" width="400" height="75"></canvas>
+</div>
+<script>
+  var data, ctx, mychart;
+
+data = {
+    labels: ["Dmitri.Ivanovich.Mendeleev", "Yuri.Alekseyevich.Gagarin", "Alexey.Arkhipovich.Leonov"],
+    datasets: [{
+        label: "My First dataset",
+        fillColor: "rgba(220,220,220,0.5)",
+        strokeColor: "rgba(220,220,220,0.8)",
+        highlightFill: "rgba(220,220,220,0.75)",
+        highlightStroke: "rgba(220,220,220,1)",
+        data: [50, 88, 15]
+    }]
+};
+
+ctx = document.getElementById("chart_b").getContext("2d");
+mychart2 = new Chart(ctx).Bar(data, {
+    animation: false
+});
+
+
+
+
+Chart.types.Bar.extend({
+    name: "BarAlt",
+    draw: function () {
+        this.scale.endPoint = this.options.endPoint;
+        Chart.types.Bar.prototype.draw.apply(this, arguments);
+    }
+});
+
+data = {
+    labels: ["Iantojones", "Jackharkness", "Owenharper"],
+    datasets: [{
+        label: "My First dataset",
+        fillColor: "rgba(220,220,220,0.5)",
+        strokeColor: "rgba(220,220,220,0.8)",
+        highlightFill: "rgba(220,220,220,0.75)",
+        highlightStroke: "rgba(220,220,220,1)",
+        data: [50, 88, 15]
+    }]
+};
+
+ctx = document.getElementById("chart_a").getContext("2d");
+mychart1 = new Chart(ctx).BarAlt(data, {
+    endPoint: mychart2.scale.endPoint,
+    animation: false
+});
+</script>
+<div class="row">
+  <div class="column"></div>
+  <div class="column"></div>
+</div>
+
 </body>
 </html>
