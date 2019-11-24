@@ -4,9 +4,319 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href= "styles.css" rel="stylesheet" type="text/css" media="all">
+    <link href='https://fonts.googleapis.com/css?family=OFL+Sorts+Mill+Goudy+TT:regular,italic' rel='stylesheet' type='text/css' />
+    <title>macroS</title>
 </head>
+
+
 <body>
-    
+
+
+
+  <h1>macroS</h1>
+<div class="container">
+  <h2>Calories</h2>
+  <canvas id="cal" width="400" height="75"></canvas>
+</div>
+
+<script>
+  let cal = document.getElementById('cal').getContext('2d');
+  let myBarChart = new Chart(cal, {
+    type: 'horizontalBar',
+    data:{
+            labels: ['Calories'],
+            datasets: [{
+              barPercentage: 0.5,
+              barThickness: 4,
+              maxBarThickness: 8,
+              minBarLength: 2,
+                data: [1500]
+            }]
+        },
+    options: {
+      scales: {
+            xAxes: [{
+                ticks: {
+                    suggestedMin: 0,
+                    stepSize: 100,
+                    maxTicksLimit: 6,
+                    suggestedMax: 2500 // make this the variable here
+                }
+            }]
+        },
+      legend:{
+        display: false
+      },
+      hover: false
+
+
+    }
+  });
+
+
+</script>
+
+
+
+<div class="container">
+  <h2>Protein</h2>
+  <canvas id="pro" width="400" height="75"></canvas>
+</div>
+
+<script>
+  let pro = document.getElementById('pro').getContext('2d');
+  let myChart = new Chart(pro, {
+    type: 'horizontalBar',
+    data:{
+            labels: ['Protein(g)'],
+            datasets: [{
+                data: [150]
+            }]
+        },
+    options: {
+      scales: {
+            xAxes: [{
+                ticks: {
+                    suggestedMin: 0,
+                    stepSize: 100,
+                    maxTicksLimit: 6,
+                    suggestedMax: 300 // make this the variable here
+                }
+            }]
+        },
+      legend:{
+        display: false
+      },
+      hover: false
+
+
+    }
+  });
+
+
+</script>
+
+
+<div class="container">
+  <h2>Carbohydrates</h2>
+  <canvas id="carbs" width="400" height="75"></canvas>
+</div>
+
+<script>
+  let carbs = document.getElementById('carbs').getContext('2d');
+  let carbchar = new Chart(carbs, {
+    type: 'horizontalBar',
+    data:{
+            labels: ['Carbs(g)'],
+            datasets: [{
+                data: [150]
+            }]
+        },
+    options: {
+      scales: {
+            xAxes: [{
+                ticks: {
+                    suggestedMin: 0,
+                    stepSize: 100,
+                    maxTicksLimit: 6,
+                    suggestedMax: 300 // make this the variable here
+                }
+            }]
+        },
+      legend:{
+        display: false
+      },
+      hover: false
+
+
+    }
+  });
+
+
+</script>
+
+
+
+
+<div class="container">
+  <h2>Fats</h2>
+  <canvas id="fats" width="400" height="75"></canvas>
+</div>
+
+<script>
+  let fats = document.getElementById('fats').getContext('2d');
+  let fatchar = new Chart(fats, {
+    type: 'horizontalBar',
+    data:{
+            labels: ['Fats (g)'],
+            datasets: [{
+                data: [150]
+            }]
+        },
+    options: {
+      scales: {
+            xAxes: [{
+                ticks: {
+                    suggestedMin: 0,
+                    stepSize: 100,
+                    maxTicksLimit: 6,
+                    suggestedMax: 300 // make this the variable here
+                }
+            }]
+        },
+      legend:{
+        display: false
+      },
+      hover: false
+
+
+    }
+  });
+
+
+</script>
+
+
+<div class="container">
+  <h2>Fibre</h2>
+  <canvas id="fibre" width="400" height="75"></canvas>
+  <h2>Sugar</h2>
+</div>
+
+<script>
+  let fibre = document.getElementById('fibre').getContext('2d');
+  let fibrechar = new Chart(fibre, {
+    type: 'horizontalBar',
+    data:{
+            labels: ['Fibre (g)'],
+            datasets: [{
+                data: [50]
+            }]
+        },
+    options: {
+      scales: {
+            xAxes: [{
+                ticks: {
+                    suggestedMin: 0,
+                    stepSize: 25,
+                    maxTicksLimit: 6,
+                    suggestedMax: 100 // make this the variable here
+                }
+            }]
+        },
+      legend:{
+        display: false
+      },
+      hover: false
+    }
+  });
+</script>
+
+
+
+<div class="container">
+  <canvas id="sugar" width="400" height="75"></canvas>
+</div>
+
+<script>
+  let sugar = document.getElementById('sugar').getContext('2d');
+  let sugarchar = new Chart(sugar, {
+    type: 'horizontalBar',
+    data:{
+            labels: ['Sugar (g)'],
+            datasets: [{
+                data: [50]
+            }]
+        },
+    options: {
+      scales: {
+            xAxes: [{
+                ticks: {
+                    suggestedMin: 0,
+                    stepSize: 30,
+                    maxTicksLimit: 6,
+                    suggestedMax: 150 // make this the variable here
+                }
+            }]
+        },
+      legend:{
+        display: false
+      },
+      hover: false
+    }
+  });
+</script>
+
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+    <h2>Goals</h2>
+    <canvas id="doughnut-chart" width="800" height="450"></canvas>
+<script>
+
+new Chart(document.getElementById("doughnut-chart"), {
+    type: 'doughnut',
+    data: {
+      labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+      datasets: [
+        {
+          label: "Population (millions)",
+          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+          data: [2478,5267,734,784,433]
+        }
+      ]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Predicted world population (millions) in 2050'
+      }
+    }
+});
+
+</script>
+
+    </div>
+    <div class="col">
+      <h2>Actual</h2>
+
+
+    <canvas id="actual" width="800" height="450"></canvas>
+
+    <script>
+
+new Chart(document.getElementById("actual"), {
+    type: 'doughnut',
+    data: {
+      labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+      datasets: [
+        {
+          label: "Population (millions)",
+          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+          data: [2478,5267,734,784,433]
+        }
+      ]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Predicted world population (millions) in 2050'
+      }
+    }
+});
+    </script>
+    </div>
+  </div>
+</div>
+
+
+
 </body>
 </html>

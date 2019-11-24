@@ -29,12 +29,11 @@ app.intent('Default Welcome Intent', (conv) => {
 // agreed to PERMISSION prompt, then boolean value 'permissionGranted' is true.
 app.intent('actions_intent_PERMISSION', (conv, params, permissionGranted) => {
     if (!permissionGranted) {
-      conv.ask(`Ok, no worries. You can ask me for nutritional info about anything, or, tell me
-      what you just ate and I'll log it and you can track what you eat on your macroS account!`);
+      conv.ask(`Ok, no worries. You can ask me for nutritional info about anything, or, tell me what you just ate and I'll log it and you can track what you eat on your macroS account!`);
       conv.ask(new Suggestions('I ate 1 banana', 'I drank 250 mL of milk', '7 apples', "3 big macs and an orange"));
     } else {
       conv.data.userName = conv.user.name.display.split(' ')[0];
-      conv.ask(`Thanks, ${conv.data.userName}. What did you have to eat today?`);
+      conv.ask(`Thanks, ${conv.data.userName}. You can ask me for nutritional info about anything, or, tell me what you just ate and I'll log it and you can track what you eat on your macroS account!`);
       conv.ask(new Suggestions('I ate 1 banana', 'I drank 250 mL of milk', '7 apples', "3 big macs and an orange"));
     }
   });
@@ -70,14 +69,20 @@ app.intent('nutrition data', (conv) => {
     let cal = 0;
     let fat = 0;
     let carb = 0;
-    let protein = 0;
+    let prot = 0;
+    let fib = 0;
+    let sug = 0;
+    let choles = 0;
     res.data.foods.forEach(food => {
-      cal += food.nf_calories;
-      fat += food.nf_total_fat;
-      carb += food.nf_total_carbohydrate;
-      protein += food.nf_protein;
+      cal += Math.round(food.nf_calories);
+      fat += Math.round(food.nf_total_fat);
+      carb += Math.round(food.nf_total_carbohydrate);
+      prot += Math.round(food.nf_protein);
+      fib += Math.round(food.nf_dietary_fiber);
+      sug += Math.round(food.nf_sugars);
+      choles += Math.round(food.nf_cholesterol);
     })
-    conv.ask(`Here's the full nutritional breakdown!\nTotal Calories: ${Math.round(cal)},\nTotal Fat: ${Math.round(fat)} grams,\nTotal Carbohydrates: ${Math.round(carb)} grams,\nTotal Protein: ${Math.round(protein)} grams`);
+    conv.ask(`Here's the full nutritional breakdown!\nTotal Calories: ${cal},\nTotal Fat: ${fat} grams,\nTotal Carbohydrates: ${carb} grams,\nTotal Protein: ${prot} grams,\nTotal Fiber: ${fib} grams,\nTotal Sugar: ${sug} grams,\nTotal Cholesterol: ${choles} grams`);
     conv.ask(`Ask me something else!`);
     return;
   }).catch((error) => {
@@ -111,14 +116,20 @@ app.intent('log food', (conv) => {
     let cal = 0;
     let fat = 0;
     let carb = 0;
-    let protein = 0;
+    let prot = 0;
+    let fib = 0;
+    let sug = 0;
+    let choles = 0;
     res.data.foods.forEach(food => {
-      cal += food.nf_calories;
-      fat += food.nf_total_fat;
-      carb += food.nf_total_carbohydrate;
-      protein += food.nf_protein;
+      cal += Math.round(food.nf_calories);
+      fat += Math.round(food.nf_total_fat);
+      carb += Math.round(food.nf_total_carbohydrate);
+      prot += Math.round(food.nf_protein);
+      fib += Math.round(food.nf_dietary_fiber);
+      sug += Math.round(food.nf_sugars);
+      choles += Math.round(food.nf_cholesterol);
     })
-    conv.ask(`I logged your entry to your macroS account!\nHere's the full nutritional breakdown!\nTotal Calories: ${Math.round(cal)},\nTotal Fat: ${Math.round(fat)} grams,\nTotal Carbohydrates: ${Math.round(carb)} grams,\nTotal Protein: ${Math.round(protein)} grams`);
+    conv.ask(`I logged your entry to your macroS account!\nHere's the full nutritional breakdown!\nTotal Calories: ${cal},\nTotal Fat: ${fat} grams,\nTotal Carbohydrates: ${carb} grams,\nTotal Protein: ${prot} grams,\nTotal Fiber: ${fib} grams,\nTotal Sugar: ${sug} grams,\nTotal Cholesterol: ${choles} grams`);
     conv.ask(`Ask me something else!`);
     return;
   }).catch((error) => {
