@@ -27,6 +27,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href= "/style.css" rel="stylesheet" type="text/css" media="all">
+    <link href='https://fonts.googleapis.com/css?family=OFL+Sorts+Mill+Goudy+TT:regular,italic' rel='stylesheet' type='text/css' />
     <title>macroS</title>
 </head>
 <h1>macroS</h1>
@@ -194,6 +198,77 @@
 
 
 </script>
+
+<h2>Fibre</h2>
+
+<div class="container">
+  <canvas id="fibre" width="400" height="75"></canvas>
+</div>
+
+<script>
+  let fibre = document.getElementById('fibre').getContext('2d');
+  let fibrechar = new Chart(fibre, {
+    type: 'horizontalBar',
+    data:{
+            labels: ['Fibre (g)'],
+            datasets: [{
+                data: [50]
+            }]
+        },
+    options: {
+      scales: {
+            xAxes: [{
+                ticks: {
+                    suggestedMin: 0,
+                    stepSize: 25,
+                    maxTicksLimit: 6,
+                    suggestedMax: 100 // make this the variable here
+                }
+            }]
+        },
+      legend:{
+        display: false
+      },
+      hover: false
+    }
+  });
+</script>
+
+<h2>Sugar</h2>
+
+<div class="container">
+  <canvas id="sugar" width="400" height="75"></canvas>
+</div>
+
+<script>
+  let sugar = document.getElementById('sugar').getContext('2d');
+  let sugarchar = new Chart(sugar, {
+    type: 'horizontalBar',
+    data:{
+            labels: ['Sugar (g)'],
+            datasets: [{
+                data: [50]
+            }]
+        },
+    options: {
+      scales: {
+            xAxes: [{
+                ticks: {
+                    suggestedMin: 0,
+                    stepSize: 30,
+                    maxTicksLimit: 6,
+                    suggestedMax: 150 // make this the variable here
+                }
+            }]
+        },
+      legend:{
+        display: false
+      },
+      hover: false
+    }
+  });
+</script>
+
 </div>
 
 <div class="container">
