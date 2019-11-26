@@ -14,6 +14,9 @@ const axios = require('axios');
 // Import the firebase-functions package for deployment.
 const functions = require('firebase-functions');
 
+// Get the Nutritionix API key
+const nutritionix = require('nutritionix');
+
 // Instantiate the Dialogflow client.
 const app = dialogflow({debug: true});
 
@@ -49,8 +52,8 @@ app.intent('nutrition data', (conv) => {
   return axios({method: 'POST', url: 'https://trackapi.nutritionix.com/v2/natural/nutrients',
   // API ID and Key
     headers: {
-      'x-app-id' : "ac141a81",
-      'x-app-key' : "b2bb976cbf044a6f0a10a817debb5243",
+      'x-app-id' : nutritionix.id,
+      'x-app-key' : nutritionix.key,
     },
   // The query made to the nutritiionix API will be exactly what the user says to the Google 
   // Action agent -> the exact user input text (processed) is extracted with
@@ -96,8 +99,8 @@ app.intent('log food', (conv) => {
   return axios({method: 'POST', url: 'https://trackapi.nutritionix.com/v2/natural/nutrients',
   // API ID and Key
     headers: {
-      'x-app-id' : "ac141a81",
-      'x-app-key' : "b2bb976cbf044a6f0a10a817debb5243",
+      'x-app-id' : nutritionix.id,
+      'x-app-key' : nutritionix.key,
     },
   // The query made to the nutritiionix API will be exactly what the user says to the Google 
   // Action agent -> the exact user input text (processed) is extracted with
